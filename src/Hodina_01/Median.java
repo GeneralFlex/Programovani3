@@ -13,6 +13,8 @@ public class Median {
         while (input.hasNext()) {
             list.add(input.nextInt());
         }
+        //bubble sort
+        /*
         boolean sorted=false;
         while(!sorted) {
             sorted=true;
@@ -27,11 +29,17 @@ public class Median {
                 }
             }
         }
+         */
+        //
+        list.sort(null);
+        System.out.println(list.get(list.size()/2));
 
+        /*
         if(list.size()%2==0) {
             System.out.println(list.get(list.size()/2-1)+", " + list.get(list.size()/2));
         } else {
             System.out.println(list.size()/2+1);
         }
+         */
     }
 }
