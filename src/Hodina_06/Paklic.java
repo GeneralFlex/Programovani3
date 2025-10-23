@@ -6,7 +6,7 @@ import java.util.Base64;
 public class Paklic {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-        keyPairGenerator.initialize(2048);
+        keyPairGenerator.initialize(512);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
 
         PublicKey publicKey = keyPair.getPublic();
