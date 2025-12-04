@@ -1,4 +1,4 @@
-package Hodina_10;
+package Hodina_11;
 
 public class Clovek {
     private final String jmeno;

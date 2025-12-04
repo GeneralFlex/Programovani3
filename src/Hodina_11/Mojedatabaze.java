@@ -1,4 +1,4 @@
-package Hodina_10;
+package Hodina_11;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,11 +12,11 @@ public class Mojedatabaze {
         List<Clovek> lidi = new ArrayList<Clovek>();
         lidi.add(new Clovek("Jan", "Novak", 1));
         lidi.add(new Clovek("Pepa", "Pizl", 2));
-        lidi.add(new Clovek("Pyzlyno", "pepik", 3));
+        lidi.add(new Clovek("Pyzlyno", "pepyk", 3));
 
         System.out.println(lidi);
 
-        try(Connection conn = DriverManager.getConnection("jdbc: ......", null, null)) {
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:test.db", null, null)) {
             try (Statement stmt = conn.createStatement()) {
                 for(Clovek cl : lidi) {
                     String jmeno = cl.getJmeno();
