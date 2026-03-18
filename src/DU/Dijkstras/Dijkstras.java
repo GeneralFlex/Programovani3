@@ -15,7 +15,6 @@ public class Dijkstras {
         long end = sc.nextLong();
         dijkstras(start, end);
     }
-    //test
 
     public static void dijkstras(long start, long end) {
         Map<Long, Long> cesty = new HashMap<>();
