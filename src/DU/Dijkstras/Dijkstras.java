@@ -57,17 +57,22 @@ public class Dijkstras {
         }
 
         // vypsani cesty a vzdalenosti
-        System.out.println(vzdalenosti.get(end)+" m");
+        System.out.println(vzdalenosti.get(end));
         vypisCestu(cesty, start, end);
     }
 
     public static void vypisCestu(Map<Long, Long> cesty, long start, long end) {
-        if(start == end) {
-            System.out.print(start);
-            return;
-        }
         vypisCestu(cesty, start, cesty.get(end));
-        System.out.println(end);
+        //System.out.println(end);
+        for(List<Hrana> hrany : mapa.values()){
+            if(hrany.get(0).id1 == end){
+                for(Hrana hrana : hrany){
+                    if(hrana.id2 == start){
+                        System.out.println(hrana.toString());
+                    }
+                }
+            }
+        }
     }
 
     public static void nactiData() throws IOException {
