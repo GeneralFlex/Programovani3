@@ -62,16 +62,30 @@ public class Dijkstras {
     }
 
     public static void vypisCestu(Map<Long, Long> cesty, long start, long end) {
-        vypisCestu(cesty, start, cesty.get(end));
-        //System.out.println(end);
-        for(List<Hrana> hrany : mapa.values()){
-            if(hrany.get(0).id1 == end){
-                for(Hrana hrana : hrany){
-                    if(hrana.id2 == start){
-                        System.out.println(hrana.toString());
-                    }
+        List<List<Object>> cesta = new ArrayList<List<Object>>();
+        long currentVrchol = end;
+        long predchoziVrchol;
+        while(currentVrchol!=start){
+            //ziskej hranu
+            predchoziVrchol = cesty.get(currentVrchol);
+            //ziskej cestu
+            for(Hrana hrana : mapa.get(vrcholy.get(currentVrchol))){
+                if((hrana.id1 == currentVrchol && hrana.id2 == predchoziVrchol) || (hrana.id1 == predchoziVrchol && hrana.id2 == currentVrchol)) {
+                    List<Object> pair = new ArrayList<>();
+                    pair.add(hrana);
+                    pair.add(vrcholy.get(currentVrchol));
+                    cesta.add(pair);
+                    break;
                 }
             }
+            //krok zpet
+            currentVrchol = predchoziVrchol;
+        }
+        for(int i=cesta.size()-1;i>=0;i--){
+            List<Object> pair = cesta.get(i);
+            Hrana hrana = (Hrana) pair.get(0);
+            Vrchol vrchol = (Vrchol) pair.get(1);
+            System.out.println(hrana.jmeno+" ("+vrchol.id+")");
         }
     }
 
